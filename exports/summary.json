@@ -1,0 +1,16 @@
+{
+  "exportDate": "2025-07-26T18:12:23.400Z",
+  "totalUsers": 3,
+  "totalMeetings": 1,
+  "usersByRole": {
+    "administrators": 1,
+    "principals": 2,
+    "hods": 0,
+    "faculty": 0
+  },
+  "meetingsByStatus": {
+    "scheduled": 1,
+    "completed": 0,
+    "cancelled": 0
+  }
+}

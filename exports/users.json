@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "6884f1670fdcae9b782aa669",
+    "name": "blesson jayamon",
+    "email": "abhijayamon@gmail.com",
+    "role": "administrator",
+    "isVerified": false,
+    "createdAt": "2025-07-26T15:16:55.920Z",
+    "updatedAt": "2025-07-26T15:16:55.920Z",
+    "__v": 0
+  },
+  {
+    "_id": "6884f6e3d462ef4ef0c0848e",
+    "name": "gayatri meti",
+    "email": "puthuvel.jayamon@gmail.com",
+    "role": "principal",
+    "isVerified": false,
+    "createdAt": "2025-07-26T15:40:19.702Z",
+    "updatedAt": "2025-07-26T15:40:19.702Z",
+    "__v": 0
+  },
+  {
+    "_id": "688500dc8da18e58ff85423a",
+    "name": "abhishek",
+    "email": "nicoke9566@coursora.com",
+    "role": "principal",
+    "isVerified": false,
+    "createdAt": "2025-07-26T16:22:52.345Z",
+    "updatedAt": "2025-07-26T16:22:52.345Z",
+    "__v": 0
+  }
+]

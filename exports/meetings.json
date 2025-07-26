@@ -1,0 +1,31 @@
+[
+  {
+    "meetingNotes": {
+      "decisionsMade": [],
+      "actionItems": []
+    },
+    "_id": "688501058da18e58ff854244",
+    "title": "jij",
+    "agenda": "ojoj",
+    "date": "2025-08-02T00:00:00.000Z",
+    "time": "21:53",
+    "duration": 60,
+    "organizer": {
+      "_id": "6884f1670fdcae9b782aa669",
+      "name": "blesson jayamon",
+      "email": "abhijayamon@gmail.com"
+    },
+    "attendees": [
+      {
+        "user": "688500dc8da18e58ff85423a",
+        "status": "invited",
+        "_id": "688501058da18e58ff854245"
+      }
+    ],
+    "status": "scheduled",
+    "location": "Conference Room",
+    "createdAt": "2025-07-26T16:23:33.401Z",
+    "updatedAt": "2025-07-26T16:23:33.401Z",
+    "__v": 0
+  }
+]
