@@ -21,8 +21,10 @@ mongoose.connect(process.env.MONGODB_URI)
     // Use production routes with MongoDB
     const authRoutes = require('./routes/auth');
     const meetingRoutes = require('./routes/meetings');
+    const databaseRoutes = require('./routes/database');
     app.use('/api/auth', authRoutes);
     app.use('/api/meetings', meetingRoutes);
+    app.use('/db', databaseRoutes);
 })
 .catch(err => {
     console.log('⚠️  MongoDB not available - falling back to demo mode');

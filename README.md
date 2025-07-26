@@ -2,6 +2,20 @@
 
 A comprehensive web application for managing college meeting minutes and coordination between different levels of college administration.
 
+## 🌐 Live Demo
+
+**👀 [View Live Application](YOUR_DEPLOYMENT_URL_HERE)** ← *Click here to try the application*
+
+> 🎮 **Demo Mode**: The live demo runs in demo mode with temporary data storage for testing purposes. All features are fully functional for demonstration.
+
+**📋 Quick Start Guide:**
+1. Visit the live demo link above
+2. Click "Register" to create a test account
+3. Choose any role (Administrator, Principal, HOD, or Faculty)
+4. Start creating and managing meetings!
+
+---
+
 ## Features
 
 - **Role-based Access Control**: Different roles for Principal, Administrator, HOD, and Faculty

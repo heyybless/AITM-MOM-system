@@ -1,5 +1,47 @@
-node_modules
+# AITM MOM - Git Ignore File
+
+# Environment Variables (CRITICAL: Never commit sensitive data)
 .env
+.env.local
+.env.production
+.env.staging
+.env.test
+
+# Node.js Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime Files
+*.pid
+server.pid
 server.log
-mongodb:
+*.log
+
+# MongoDB Data
+mongodb/
+data/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+tmp/
+temp/
+uploads/
+temp-files/
 

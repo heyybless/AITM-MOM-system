@@ -3,138 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AITM MOM - Minutes of Meeting</title>
+    <title>AITM MOM - Minutes of Meeting Management System</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>AITM MOM</h1>
-            <p>Minutes of Meeting Management System</p>
-        </header>
-
-        <!-- Login/Register Toggle -->
-        <div class="auth-container" id="authContainer">
-            <div class="form-toggle">
-                <button class="toggle-btn active" onclick="showLogin()">Login</button>
-                <button class="toggle-btn" onclick="showRegister()">Register</button>
-            </div>
-
-            <!-- Login Form -->
-            <div class="form-container" id="loginForm">
-                <h2>Login</h2>
-                <form id="loginFormElement">
-                    <div class="form-group">
-                        <label for="loginEmail">Email:</label>
-                        <input type="email" id="loginEmail" required>
+    <!-- Home Page -->
+    <div class="home-container" id="homeContainer">
+        <div class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="logo-section">
+                    <i class="fas fa-graduation-cap logo-icon"></i>
+                    <h1 class="main-title">AITM MOM</h1>
+                    <p class="subtitle">Minutes of Meeting Management System</p>
+                    <p class="description">Streamline your college meeting management with our comprehensive digital solution</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="showSignIn()">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                    <button class="btn btn-secondary" onclick="showSignUp()">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up
+                    </button>
+                </div>
+                
+                <div class="features-preview">
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Role-based Access</span>
                     </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password:</label>
-                        <input type="password" id="loginPassword" required>
+                    <div class="feature">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Meeting Scheduling</span>
                     </div>
-                    <button type="submit" class="btn-primary">Login</button>
-                </form>
-            </div>
-
-            <!-- Registration Form -->
-            <div class="form-container hidden" id="registerForm">
-                <h2>Register</h2>
-                <form id="registerFormElement">
-                    <div class="form-group">
-                        <label for="registerName">Full Name:</label>
-                        <input type="text" id="registerName" required>
+                    <div class="feature">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Digital Reports</span>
                     </div>
-                    <div class="form-group">
-                        <label for="registerEmail">Email:</label>
-                        <input type="email" id="registerEmail" required>
+                    <div class="feature">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Notifications</span>
                     </div>
-                    <div class="form-group">
-                        <label for="registerPassword">Password:</label>
-                        <input type="password" id="registerPassword" required minlength="6">
-                    </div>
-                    <div class="form-group">
-                        <label for="registerRole">Role:</label>
-                        <select id="registerRole" required onchange="toggleDepartmentField()">
-                            <option value="">Select Role</option>
-                            <option value="principal">Principal</option>
-                            <option value="administrator">Administrator</option>
-                            <option value="hod">Head of Department</option>
-                            <option value="faculty">Faculty</option>
-                        </select>
-                    </div>
-                    <div class="form-group hidden" id="departmentGroup">
-                        <label for="registerDepartment">Department:</label>
-                        <select id="registerDepartment">
-                            <option value="">Select Department</option>
-                            <option value="Computer Science">Computer Science</option>
-                            <option value="Mechanical">Mechanical</option>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Civil">Civil</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Chemical">Chemical</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary">Register</button>
-                </form>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Sign In Page -->
+    <div class="auth-container hidden" id="signInContainer">
+        <div class="auth-card">
+            <div class="auth-header">
+                <button class="back-btn" onclick="showHome()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2><i class="fas fa-sign-in-alt"></i> Sign In</h2>
+                <p>Welcome back! Please sign in to your account</p>
+            </div>
+            
+            <form id="loginFormElement" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Page -->
+    <div class="auth-container hidden" id="signUpContainer">
+        <div class="auth-card">
+            <div class="auth-header">
+                <button class="back-btn" onclick="showHome()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+                <p>Create your account to get started</p>
+            </div>
+            
+            <form id="registerFormElement" class="auth-form">
+                <div class="form-group">
+                    <label for="registerName">
+                        <i class="fas fa-user"></i>
+                        Full Name
+                    </label>
+                    <input type="text" id="registerName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" id="registerEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <input type="password" id="registerPassword" required minlength="6" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">
+                        <i class="fas fa-id-badge"></i>
+                        Role
+                    </label>
+                    <select id="registerRole" required onchange="toggleDepartmentField()">
+                        <option value="">Select your role</option>
+                        <option value="principal">Principal</option>
+                        <option value="administrator">Administrator</option>
+                        <option value="hod">Head of Department</option>
+                        <option value="faculty">Faculty</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="departmentGroup">
+                    <label for="registerDepartment">
+                        <i class="fas fa-building"></i>
+                        Department
+                    </label>
+                    <select id="registerDepartment">
+                        <option value="">Select your department</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Electrical">Electrical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Chemical">Chemical</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-user-plus"></i>
+                    Create Account
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="#" onclick="showSignIn()">Sign in here</a></p>
+            </div>
+        </div>
+    </div>
 
         <!-- Dashboard (hidden initially) -->
         <div class="dashboard hidden" id="dashboard">
-            <div class="dashboard-header">
-                <h2 id="welcomeMessage">Welcome!</h2>
-                <button class="btn-secondary" onclick="logout()">Logout</button>
-            </div>
-
-            <div class="dashboard-content">
-                <div class="action-buttons">
-                    <button class="btn-primary" onclick="showCreateMeeting()">Create Meeting</button>
-                    <button class="btn-secondary" onclick="showMyMeetings()">My Meetings</button>
+            <div class="dashboard-container">
+                <!-- Top Navigation Bar -->
+                <div class="dashboard-navbar">
+                    <div class="navbar-left">
+                        <button class="logout-btn" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                    <div class="navbar-center">
+                        <div class="dashboard-logo">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>AITM MOM Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="navbar-right">
+                        <div class="user-info">
+                            <i class="fas fa-user-circle"></i>
+                            <span id="welcomeMessage">Welcome!</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Create Meeting Form -->
-                <div class="meeting-form hidden" id="createMeetingForm">
-                    <h3>Create New Meeting</h3>
-                    <form id="meetingFormElement">
-                        <div class="form-group">
-                            <label for="meetingTitle">Meeting Title:</label>
-                            <input type="text" id="meetingTitle" required>
+                <!-- Main Dashboard Content -->
+                <div class="dashboard-main">
+                    <!-- Action Cards Section -->
+                    <div class="action-cards-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                            <p>Manage your meetings efficiently</p>
                         </div>
-                        <div class="form-group">
-                            <label for="meetingAgenda">Agenda:</label>
-                            <textarea id="meetingAgenda" required rows="4"></textarea>
+                        <div class="action-cards">
+                            <div class="action-card create-meeting-card" onclick="showCreateMeeting()">
+                                <div class="card-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Create Meeting</h3>
+                                    <p>Schedule a new meeting with attendees</p>
+                                </div>
+                                <div class="card-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="action-card my-meetings-card" onclick="showMyMeetings()">
+                                <div class="card-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>My Meetings</h3>
+                                    <p>View and manage your meetings</p>
+                                </div>
+                                <div class="card-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="meetingDate">Date:</label>
-                            <input type="date" id="meetingDate" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="meetingTime">Time:</label>
-                            <input type="time" id="meetingTime" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="meetingDuration">Duration (minutes):</label>
-                            <input type="number" id="meetingDuration" value="60" min="15">
-                        </div>
-                        <div class="form-group">
-                            <label for="meetingLocation">Location:</label>
-                            <input type="text" id="meetingLocation" value="Conference Room">
-                        </div>
-                        <div class="form-group">
-                            <label>Attendees:</label>
-                            <div id="attendeesList"></div>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-primary">Create Meeting</button>
-                            <button type="button" class="btn-secondary" onclick="hideCreateMeeting()">Cancel</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
 
-                <!-- My Meetings List -->
-                <div class="meetings-list hidden" id="meetingsList">
-                    <h3>My Meetings</h3>
-                    <div id="meetingsContainer"></div>
+                    <!-- Meeting Management Section -->
+                    <div class="meeting-management-section">
+                        <!-- Create Meeting Form -->
+                        <div class="meeting-form hidden" id="createMeetingForm">
+                            <h3>Create New Meeting</h3>
+                            <form id="meetingFormElement">
+                                <div class="form-group">
+                                    <label for="meetingTitle">Meeting Title:</label>
+                                    <input type="text" id="meetingTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingAgenda">Agenda:</label>
+                                    <textarea id="meetingAgenda" required rows="4"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingDate">Date:</label>
+                                    <input type="date" id="meetingDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingTime">Time:</label>
+                                    <input type="time" id="meetingTime" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingDuration">Duration (minutes):</label>
+                                    <input type="number" id="meetingDuration" value="60" min="15">
+                                </div>
+                                <div class="form-group">
+                                    <label for="meetingLocation">Location:</label>
+                                    <input type="text" id="meetingLocation" value="Conference Room">
+                                </div>
+                                <div class="form-group">
+                                    <label>Attendees:</label>
+                                    <div id="attendeesList"></div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="submit" class="btn-primary">Create Meeting</button>
+                                    <button type="button" class="btn-secondary" onclick="hideCreateMeeting()">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- My Meetings List -->
+                        <div class="meetings-list hidden" id="meetingsList">
+                            <h3>My Meetings</h3>
+                            <div id="meetingsContainer"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

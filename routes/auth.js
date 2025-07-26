@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const router = express.Router();
 
@@ -62,8 +63,16 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
+        // Generate JWT token
+        const token = jwt.sign(
+            { userId: user._id, email: user.email, role: user.role },
+            process.env.JWT_SECRET || 'fallback_secret_for_development',
+            { expiresIn: '24h' }
+        );
+
         res.json({
             message: 'Login successful',
+            token,
             user: {
                 id: user._id,
                 name: user.name,

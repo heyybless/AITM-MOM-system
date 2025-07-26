@@ -3,10 +3,10 @@ let currentUser = null;
 let eligibleAttendees = [];
 
 // DOM Elements
-const authContainer = document.getElementById('authContainer');
+const homeContainer = document.getElementById('homeContainer');
+const signInContainer = document.getElementById('signInContainer');
+const signUpContainer = document.getElementById('signUpContainer');
 const dashboard = document.getElementById('dashboard');
-const loginForm = document.getElementById('loginForm');
-const registerForm = document.getElementById('registerForm');
 const createMeetingForm = document.getElementById('createMeetingForm');
 const meetingsList = document.getElementById('meetingsList');
 const meetingNotesModal = document.getElementById('meetingNotesModal');
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedUser) {
         currentUser = JSON.parse(savedUser);
         showDashboard();
+    } else {
+        showHome();
     }
 
     // Form event listeners
@@ -27,19 +29,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('meetingNotesForm').addEventListener('submit', handleMeetingNotes);
 });
 
-// Authentication Functions
-function showLogin() {
-    document.querySelector('.toggle-btn.active').classList.remove('active');
-    document.querySelector('.toggle-btn').classList.add('active');
-    loginForm.classList.remove('hidden');
-    registerForm.classList.add('hidden');
+// Navigation Functions
+function showHome() {
+    hideAllContainers();
+    homeContainer.classList.remove('hidden');
 }
 
-function showRegister() {
-    document.querySelector('.toggle-btn.active').classList.remove('active');
-    document.querySelectorAll('.toggle-btn')[1].classList.add('active');
-    loginForm.classList.add('hidden');
-    registerForm.classList.remove('hidden');
+function showSignIn() {
+    hideAllContainers();
+    signInContainer.classList.remove('hidden');
+}
+
+function showSignUp() {
+    hideAllContainers();
+    signUpContainer.classList.remove('hidden');
+}
+
+function hideAllContainers() {
+    homeContainer.classList.add('hidden');
+    signInContainer.classList.add('hidden');
+    signUpContainer.classList.add('hidden');
+    dashboard.classList.add('hidden');
 }
 
 function toggleDepartmentField() {
@@ -106,8 +116,8 @@ async function handleRegister(e) {
         const data = await response.json();
 
         if (response.ok) {
-            showSuccess('Registration successful! Please login.');
-            showLogin();
+            showSuccess('Registration successful! Please sign in.');
+            showSignIn();
             document.getElementById('registerFormElement').reset();
         } else {
             showError(data.message);
@@ -120,14 +130,12 @@ async function handleRegister(e) {
 function logout() {
     currentUser = null;
     localStorage.removeItem('currentUser');
-    authContainer.classList.remove('hidden');
-    dashboard.classList.add('hidden');
-    showLogin();
+    showHome();
 }
 
 // Dashboard Functions
 function showDashboard() {
-    authContainer.classList.add('hidden');
+    hideAllContainers();
     dashboard.classList.remove('hidden');
     document.getElementById('welcomeMessage').textContent = `Welcome, ${currentUser.name}!`;
     showMyMeetings();
@@ -361,8 +369,30 @@ function showAlert(message, type) {
     const alert = document.createElement('div');
     alert.className = `alert alert-${type}`;
     alert.textContent = message;
+    alert.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        max-width: 400px;
+        word-wrap: break-word;
+    `;
     
-    document.querySelector('.container').insertBefore(alert, document.querySelector('.container').firstChild);
+    if (type === 'success') {
+        alert.style.backgroundColor = '#d4edda';
+        alert.style.color = '#155724';
+        alert.style.border = '1px solid #c3e6cb';
+    } else {
+        alert.style.backgroundColor = '#f8d7da';
+        alert.style.color = '#721c24';
+        alert.style.border = '1px solid #f5c6cb';
+    }
+    
+    document.body.appendChild(alert);
     
     // Auto remove after 5 seconds
     setTimeout(() => {

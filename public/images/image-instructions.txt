@@ -1,0 +1,1 @@
+Please save your AITM campus image as 'aitm-campus.jpg' in the public/images/ folder to see the background image on the home page.
