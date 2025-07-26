@@ -2,6 +2,16 @@
 
 A comprehensive web application for managing college meeting minutes and coordination between different levels of college administration.
 
+## 🚀 Live Demo
+
+**Application is live and deployed on Railway!**
+
+🌐 **[Access the Application](https://aitm-mom-system-production.up.railway.app)**
+
+*Visit the live application to explore all features including user registration, meeting management, and email notifications.*
+
+---
+
 ## 🌟 Features Overview
 
 🎓 **Professional College Meeting Management System** with comprehensive features for academic institutions.
@@ -184,6 +194,31 @@ The application uses Gmail for sending emails. To set this up:
 ### Port Issues
 - If port 3000 is in use, change the PORT value in .env file
 - Make sure no other application is using the same port
+
+## 🚀 Deployment
+
+This application is deployed on **Railway** and is production-ready.
+
+### Live Application
+- **URL**: [https://aitm-mom-system-production.up.railway.app](https://aitm-mom-system-production.up.railway.app)
+- **Platform**: Railway
+- **Status**: ✅ Live and Active
+
+### Deployment Configuration
+The application includes:
+- `railway.json` - Railway deployment configuration
+- Automatic build and deployment via Railway's Nixpacks
+- Environment variables configured for production
+- MongoDB Atlas integration for cloud database
+
+### Deploy Your Own Instance
+1. Fork this repository
+2. Connect your GitHub repo to Railway
+3. Set up the required environment variables:
+   - `MONGODB_URI`
+   - `EMAIL_USER`
+   - `EMAIL_PASS`
+4. Deploy automatically via Railway
 
 ## Support
 
