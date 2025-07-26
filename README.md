@@ -2,17 +2,18 @@
 
 A comprehensive web application for managing college meeting minutes and coordination between different levels of college administration.
 
-## 🌐 Live Demo
+## 🌟 Features Overview
 
-**👀 [View Live Application](YOUR_DEPLOYMENT_URL_HERE)** ← *Click here to try the application*
+🎓 **Professional College Meeting Management System** with comprehensive features for academic institutions.
 
-> 🎮 **Demo Mode**: The live demo runs in demo mode with temporary data storage for testing purposes. All features are fully functional for demonstration.
+> 📚 **Full-Featured**: Complete meeting lifecycle management with role-based access, email notifications, and detailed reporting.
 
-**📋 Quick Start Guide:**
-1. Visit the live demo link above
-2. Click "Register" to create a test account
-3. Choose any role (Administrator, Principal, HOD, or Faculty)
-4. Start creating and managing meetings!
+**✨ Key Highlights:**
+- 🔐 **Secure Authentication** with JWT tokens
+- 📧 **Professional Email Templates** for meeting invitations
+- 🗄️ **MongoDB Integration** with real-time dashboard
+- 📱 **Responsive Design** for all devices
+- 🚀 **Ready for Production** with deployment configurations
 
 ---
 
@@ -48,7 +49,7 @@ A comprehensive web application for managing college meeting minutes and coordin
    - Replace the placeholder values with your actual configuration:
    ```
    MONGODB_URI=your_actual_mongodb_connection_string
-   PORT=5000
+   PORT=3000
    EMAIL_USER=your_gmail_email@gmail.com
    EMAIL_PASS=your_gmail_app_password
    ```
@@ -71,7 +72,7 @@ A comprehensive web application for managing college meeting minutes and coordin
    ```
 
 2. **Access the application**
-   - Open your browser and go to `http://localhost:5000`
+   - Open your browser and go to `http://localhost:3000`
 
 ## User Roles and Permissions
 
@@ -181,7 +182,7 @@ The application uses Gmail for sending emails. To set this up:
 - Check that 2-factor authentication is enabled on your Gmail account
 
 ### Port Issues
-- If port 5000 is in use, change the PORT value in .env file
+- If port 3000 is in use, change the PORT value in .env file
 - Make sure no other application is using the same port
 
 ## Support
