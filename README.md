@@ -195,6 +195,44 @@ The application uses Gmail for sending emails. To set this up:
 - If port 3000 is in use, change the PORT value in .env file
 - Make sure no other application is using the same port
 
+## 🗄️ Database Setup
+
+### Local MongoDB Development
+For local development, you can use MongoDB installed via Homebrew:
+
+```bash
+# Install MongoDB via Homebrew
+brew tap mongodb/brew
+brew install mongodb-community
+
+# Start MongoDB service
+brew services start mongodb/brew/mongodb-community
+
+# Connect to MongoDB shell
+mongosh aitm-mom
+```
+
+### MongoDB CLI Commands
+```bash
+# View collections
+show collections
+
+# Count documents
+db.users.countDocuments()
+db.meetings.countDocuments()
+
+# View users
+db.users.find().pretty()
+
+# View meetings
+db.meetings.find().pretty()
+```
+
+### Database Configuration
+- **Local**: `mongodb://localhost:27017/aitm-mom`
+- **Production**: MongoDB Atlas Cloud connection string
+- **Collections**: `users`, `meetings`, `connectiontests`
+
 ## 🚀 Deployment
 
 This application is deployed on **Railway** and is production-ready.
