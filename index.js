@@ -27,8 +27,10 @@ mongoose.connect(process.env.MONGODB_URI)
     app.use('/db', databaseRoutes);
 })
 .catch(err => {
+    console.log('❌ MongoDB Connection Error:', err.message);
+    console.log('🔍 MONGODB_URI:', process.env.MONGODB_URI ? 'Set (length: ' + process.env.MONGODB_URI.length + ')' : 'Not set');
     console.log('⚠️  MongoDB not available - falling back to demo mode');
-    console.log('💡 To enable full functionality, set up MongoDB and update MONGODB_URI in .env');
+    console.log('💡 To enable full functionality, fix the MongoDB connection');
     console.log('🎮 Demo mode: Registration and login will work with temporary data');
     
     // Use demo routes as fallback
